@@ -42,7 +42,7 @@ class Structure:
     details: str
 
     @classmethod
-    def from_dict(cls, data):
+    def from_dict(cls: "Structure", data: Dict) -> "Structure":
         return cls(
             kind=StructureKind(data["kind"]),
             x=int(data["x"]),
@@ -110,7 +110,7 @@ class Biome:
     count: int
 
     @classmethod
-    def from_dict(cls, data):
+    def from_dict(cls: "Biome", data: Dict) -> "Biome":
         return cls(kind=BiomeKind(data["kind"]), count=data["count"])
 
 
@@ -123,13 +123,13 @@ class World:
     def __post_init__(self):
         self.seed = int(self.seed)
 
-    def add_structure(self, kind, x, z, details):
+    def add_structure(self, kind: str, x: int, z: int, details: str):
         if isna(details):
             details = ""
 
         self.structures.append(Structure(StructureKind(kind), x, z, details))
 
-    def add_biome(self, kind, count):
+    def add_biome(self, kind: str, count: int):
         self.biomes.append(Biome(BiomeKind(kind), count))
 
     def generate_image(self):
@@ -170,7 +170,7 @@ class World:
         return [biome for biome in self.biomes if biome.kind == kind][0].count
 
     @classmethod
-    def from_dict(cls: "World", data: Dict):
+    def from_dict(cls: "World", data: Dict) -> "World":
         return cls(
             seed=data["seed"],
             structures=[

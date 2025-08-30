@@ -1,13 +1,13 @@
-# Minesoc Seedcracking 
+# Minesoc Seedcracking
 
 Find good seeds for the next minesoc server. 
 
-## Criteria 
+## Criteria
 
 - All biomes present within initial world border region 
 - All structures present within initial world border region 
 
-## Notes 
+## Notes
 
 - `data.tar.gz` contents: 
     - `minesoc-seeds.session`: [cubiomes-viewer](https://github.com/Cubitect/cubiomes-viewer) seedcracking session
