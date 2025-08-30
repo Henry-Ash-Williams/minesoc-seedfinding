@@ -1,8 +1,8 @@
-# Minesoc Seedcracking
+# Minesoc Seedcracking
 
 Find good seeds for the next minesoc server. 
 
-## Criteria
+## Criteria
 
 - All biomes present within initial world border region 
 - All structures present within initial world border region 
