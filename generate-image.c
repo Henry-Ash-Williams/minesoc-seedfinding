@@ -1,6 +1,7 @@
 #include "cubiomes/generator.h"
 #include "cubiomes/util.h"
 #include "stdio.h"
+#include "string.h"
 
 /* 
 How to Compile: 
@@ -31,12 +32,12 @@ int main(int argc, char* argv[])
     Generator g;
     setupGenerator(&g, MC_1_21_3, 0);
 
-    uint64_t seed = atoi(argv[1]);
+    uint64_t seed = strtoull(argv[1], NULL, 10);
     applySeed(&g, DIM_OVERWORLD, seed);
 
     Range r;
     r.scale = 16;
-    r.x = 0, r.z = 0;   
+    r.x = -250, r.z = -250;   
     r.sx = 500, r.sz = 500; 
     r.y = 256, r.sy = 1;
 
