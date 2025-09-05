@@ -33,6 +33,12 @@ class StructureKind(StrEnum):
     Spawn = "spawn"
     Stronghold = "stronghold"
 
+    def get_icon_path(self):
+        base_path = (
+            "/Users/henrywilliams/Documents/programming/c/cubiomes-viewer/rc/icons"
+        )
+        return os.path.join(base_path, f"{self}.png")
+
 
 @dataclass
 class Structure:
@@ -155,6 +161,13 @@ class World:
 
             return Image.open(os.path.join(tmp_dir, "img.png"))
 
+    # def image_with_icons(self, structures=List[StructureKind]):
+    #     image = self.generate_image()
+    #     max_w, max_h =
+    #     w, h = image.size
+
+    #     for s in structures:
+
     def get_structure_count(self, kind: Union[StructureKind, str]) -> int:
         if isinstance(kind, str):
             kind = StructureKind(kind)
@@ -178,3 +191,8 @@ class World:
             ],
             biomes=[Biome.from_dict(biome) for biome in data["biomes"]],
         )
+
+
+if __name__ == "__main__":
+    s = StructureKind("village")
+    print(s.get_icon_path())
